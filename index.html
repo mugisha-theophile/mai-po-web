@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugisha-theophile</title>
+    <link rel="stylesheet" href="https://fontawesome.com/v4/icons/">
+    <style type="text/css">
+   /* Global Styles */
+    *{
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+    }
+    html{
+       scroll-behavior: smooth;
+    }
+    :root {
+      --primary-background-color: #f68104;
+     --primary-text-color: #134;
+     --secondary-background-color: #134;
+     --secondary-text-color: red;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-background-color);
+      color: var(--primary-text-color);
+    }
+
+    .container {
+      min-width: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    a{
+      text-decoration: none;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      color: black;
+      margin-top: px;
+      font-size: 12px;
+    }
+    a h1{
+      border-right: 5px solid yellow;
+      border-radius: 10px;
+      background: transparent;
+    }
+    a h1 span{
+      color: white;
+      margin-top: 10px;
+      border-bottom-left-radius: 20px;
+      
+    }
+    /* Header Section*/
+    #header{
+      width: 100vw;
+      height: auto;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+    }
+    #header .header{
+      min-height: 2vh;
+      background-color: rgba(31, 30, 30, 0.24);
+      transition: .3s ease background-color;
+    }
+    #header .nav-bar{
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      max-width: 1300px;
+      padding: 0 10px;
+
+    }
+    #header .nav-list ul{
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(31, 30, 30);
+      left: 100%;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      top: 0;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      overflow-x: hidden;
+      transition: .5s ease left;
+    }
+    #header .nav-list ul.active{
+      left: 0;
+    }
+    #header .nav-list a{
+      color: rgb(243, 225, 225);
+      text-transform: uppercase;
+      padding: 20px;
+      display: block;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    #header .nav-list a::after{
+      content: attr(data-after);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      color: rgba(31, 30, 30, 0.24);
+      letter-spacing: 50px;
+      z-index: -1;
+      font-size: 7rem;
+      transition: .3s ease letter-spacing;
+    
+    }
+    #header .nav-list a:hover{
+      color: crimson;
+      cursor: copy;
+    }
+    #header .nav-list ul li:hover a::after{
+      transform: translate(-50%, -50%) scale(1);
+      letter-spacing: initial;
+    }
+    #header .hamburger{
+      height: 60px;
+      width: 60px;
+      display: block;
+      border: 3px solid white;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      cursor: pointer;
+      transform: scale(.6);
+      margin-right: 10px;
+  }
+  #header .hamburger::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid black;
+    animation: humburger_puls 3s ease infinite;
+  }
+  #header .hamburger .bar{
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+  }
+  #header .hamburger .bar::after,
+  #header .hamburger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+  }
+  #header .hamburger .bar::after{
+    top: 8px;
+  }
+  #header .hamburger .bar::before{
+    bottom: 8px;
+  }
+  #header .hamburger.active .bar::before{
+    bottom: 0;
+  }
+  #header .hamburger.hamburger.active .bar::after{
+    top: 0;
+  }
+  /* End Header Section*/
+
+  /* Hero Section Styles */
+  #hero {
+    background: #29e603;
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    text-align: right;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border-left: 30px solid yellow;
+    border-radius: 50%;
+  } 
+
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: red;
+  }
+  .btn{
+    width: 140px;
+    height: 40px;
+    margin: 10px;
+  }
+  .btn a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    box-shadow: 0 15px 15px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.01);
+    border-top: 1px solid rgba(255,255,255,0.01);
+    border-radius: 30px;
+    padding: 1x;
+    letter-spacing: px;
+    text-decoration: none;
+    overflow: hidden;
+    color: aqua;
+    font-weight: 40px;
+    z-index: 1;
+    transition: 0.5s;
+    backdrop-filter: blur(15px);
+    box-shadow: 1px -130px 28px -96px rgba(0,0,0,0.82),-3px 128px 27px -96px rgba(0,0,0,0.82);
+
+  }
+  .btn a::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 10vh;
+    background: linear-gradient(to left ,rgba(222, 221, 221, 0.5), white);
+    transform: skewX(45deg) translate(0);
+    transition: 0.5s;
+    filter: blur(0px);
+  }
+  .btn:hover a::before{
+    transform: skew(45deg)
+    translate(300px);
+            
+  }
+  .btn::before{
+    transition: 5000ms;
+  }
+  .btn:hover{
+    background-color: rgb(211, 7, 116);
+    border-radius: 80%;
+  }
+  .btn a:hover{
+    letter-spacing: 2px;
+    background: transparent;
+    color: black;
+    box-shadow: 0 0 5px #fafe0a, 0 0 15px #fafe0a, 0 0 30px #fafe0a, 0 0 60px #fafe0a;
+  }
+  /* About Section Styles */
+  #about {
+    background-color: #747272;
+    padding: 50px 0;
+    text-align: center;
+    background-color: var(--primary-background-color);
+  }
+
+  #about h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    border-right: 3px solid yellow;
+    border-radius: 80%;
+  }
+  #about h2 span{
+    color: red;
+  }
+  #about h3{
+    border-top: 30px solid rgb(255, 7, 7);
+    border-left: 40px solid rgb(73, 23, 253);
+    border-radius: 90%;
+  }
+  #about p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+.profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 20px solid transparent;
+  box-shadow: 30px 20px hsl(60, 100%, 50%);
+}
+
+.profile h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+  /* Services Section Styles */
+  #services {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+  }
+
+  #services h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  #services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #services ul li {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 18px;
+  }
+  .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.service {
+  text-align: center;
+  border: 2px solid red;
+  box-shadow: 11px 6px;
+  border-top: none;
+  
+}
+
+.service img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.service h3 {
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  background: #134;
+  color: aliceblue;
+  margin-bottom: 5px;
+}
+.service p {
+  font-size: 16px;
+  background: rgb(246, 42, 42);
+}
+
+/* ... */
+  .missions{
+    text-align: center;
+    width: 50%;
+  
+  }
+  .missions h2{
+    margin-bottom:20px;
+    font-size: 30px;
+    text-transform: capitalize;
+  }
+  .missions h2 span{
+    color: red;
+  }
+  .accordion input[type="radio"]{
+    display: none;
+  }
+  .container label{
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    color: white;
+    background: rgb(9, 6, 223);
+  }
+  .accordion:last-child > label, .accordion:last-child > .accordion-content{
+    border: none;
+  }
+  .accordion-content{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+    border-bottom: 2px solid black;
+    color: red;
+    font-size: 15px;
+    transition: 0.3s linear;
+  }
+  .accordion input:checked~ .accordion-content{
+    padding: 15px;
+    background: white;
+    opacity: 1;
+    height: 90px;
+    z-index: 1;
+  }
+  /* Contact Section Styles */
+  #contact {
+    background-color: #079bb1;
+    padding: 50px 0;
+    text-align: center;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+  }
+
+  #contact h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  #contact h2 span{
+    color: red;
+  }
+  #contact form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  #contact input,
+  #contact textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background: #07072e;
+  } 
+  .contact-info {
+  margin-top: 40px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.contact-info a {
+  color: yellow;
+  text-decoration: none;
+}
+  #contact button {
+    background-color: crimson;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* Media Query For Desktop*/
+  @media only screen and (min-width:1200px) {
+   /* Header*/
+    #header .hamburger{
+      display: none;
+    }
+    #header .nav-list ul{
+      position: initial;
+      display: block;
+      height: auto;
+      width: fit-content;
+      background-color: transparent;
+
+    }
+    #header .nav-list ul li a{
+      font-size: 1.5rem;
+    }
+    #header .nav-list ul li{
+      display: inline-block;
+    }
+    /* End Header*/
+  }         
+  /* End Media Query For Desktop*/
+
+  /* Address Section Styles */
+#address {
+  background-color: rgb(39, 15, 2);
+  padding: 50px 0;
+  text-align: center;
+}
+
+#address h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+#address h2 span{
+  color: red;
+}
+address {
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ... */
+
+  /* Footer Styles */
+  footer {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    background-color: #07072e;
+    color: #fff;
+    text-align: center;
+    color: var(--secondary-text-color)
+  }
+  
+  .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  }
+  .social{
+    margin-top: 30px;
+    display: flex;
+  }
+  .social div{
+    background: red;
+    width: 180px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    color: #eaf0fb;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .social div:nth-child(1){
+    background: red;
+  }
+  .social div:nth-child(2){
+    background: rgb(1, 1, 27);
+  }
+  .social div:nth-child(3){
+    background: #079bb1;
+  }
+  .social div:nth-child(4){
+    background: blue;
+  }
+  .social div:hover{
+    background: rgba(255, 255, 255, 0.47);
+  }
+  .social .fb{
+    margin-left: 25px;
+
+  }
+  .social i{
+    margin-right: 4px;
+  }
+</style>
+</head>  
+<body>
+  <section id="header">
+    <div class="light-mode">
+     <!-- Your content goes here -->
+
+      <button id="theme-toggle" onclick="toggleTheme()">Change mode</button>
+    </div>
+
+    <div class="header container">
+      <div class="nav-bar">
+          <div class="brand">
+              <a href="#hero"><h1><span>mug</span>isha</h1></a>
+          </div>
+          <div class="nav-list">
+              <div class="hamburger"><div class="bar"></div></div>
+                <ul>
+                  <li><a href="#hero" data-after="Home">Home</a></li>
+                  <li><a href="#about" data-after="about">about me</a></li>
+                  <li><a href="#services" data-after="Services">Services</a></li>
+                  <li><a href="#missions" data-after="skills">skills</a></li>
+                  <li><a href="#contact" data-after="Contact">Contact</a></li>
+                  <li><a href="#address" data-after="finf us">find me</a></li>
+                </ul>
+              </div>  
+            </div>
+          </div>
+      </div>    
+    </div>
+  </section>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Mugisha Theophile</h1>
+      <h2>Hellow to every one!</h2>
+      <p>You're highly welcome to my innovative platform.</p>
+       <div class="btn"><a href="#contact" class="#">Get Started</a></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About <span>Me</span></h2>
+      <div class="profile">
+        <img src="mugi.jpg" alt="Profile Image">
+        <h3>Mugisha Theophile</h3>
+        <p>Co-Founder & CEO</p>
+        <h4>Fronted web developer</h4>
+        <p>Mugisha Theophile as a fronted web developer belives in building strong brands, good<br>clean design,well-crafted content, and<br>integrated strategies.<br>Am pride my self on customized web<br>developement and designing of premier<br>quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2> Services</h2>
+      <div class="services-grid">
+        <div class="service">
+          <h3>Digitor Animation</h3>
+          <p>Building of fast& responsive animated<br>,premium quality website<br>hosting website.</p>
+        </div>
+        <div class="service">
+          <h3>HTML, CSS& SCSS</h3>
+          <p>Building and developing a fast& responsive<br>,premium quality website<br>hosting website.</p>
+        </div>
+        <div class="service">
+          <h3>Website Designer</h3>
+          <p>Building and designing of fast& responsive<br>,premium quality website<br>hosting website.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="missions">
+    <div class="missions container">
+      <h2>Skil<span>ls & Quali</span>fications</h2>
+      <div class="accordion">
+        <input type="radio" name="accordion" id="accordion1">
+        <label for="accordion1">P.L.E & U.C.E</label>
+        <div class="accordion-content">
+          I  have both (P.L.E) certificate and (U.C.E) Uganda certificate of education for both oridinary level and advanced level<br>in G.E.A/I.C.T geography, enterprenuership and art / information ,communication and<br>technology.
+        </div>
+      </div>
+
+      <div class="accordion">
+        <input type="radio" name="accordion" id="accordion2">
+        <label for="accordion2">I & S</label>
+        <div class="accordion-content">
+          I have institutional skills and certificate of driving from (G.I.T) Grafied institute of technology<br> and socail skills about marketing from (K.U.A.T) limited Katurebe uganda agro-transit limited. 
+        </div>
+      </div>
+
+      <div class="accordion">
+        <input type="radio" name="accordion" id="accordion3">
+        <label for="accordion3">CODELIBER</label>
+        <div class="accordion-content">
+          I have a basic skills of responsive web design<br> and programming with (J.S) JavaScript from CODELIBER.
+        </div>
+      </div>
+
+      <div class="accordion">
+        <input type="radio" name="accordion" id="accordion4">
+        <label for="accordion4">OPENCLASS</label>
+        <div class="accordion-content">
+          I have a skills of Fronted developer: HTML,CSS,SCSS,JS,GitHub from openclass paris, France and  FREE CAMP CODE via online study<br> and basic comprehensive from Y.U.F.A.T Coding progam.
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact <span>Me</span></h2>
+      <p>Ready to take the first step towards your IT journey? Fill out the form or get me thou contacts below and i'll get back to you shortly via your email and contact.</p>
+      <div class="contact-info">
+        <p>Email: mugishatheophile71@gmail.com</p> 
+        <p>Phone: <a href="tel:+256706953043">+ (256) 706-953-043</a></p>
+        <p>WhatsApp: <a href="tel:+256706953043">+ (256) 706-953-043</a></p>
+        <p>Instgram: <a href="instgram">Mugisha presido</a></p>
+        <p>Twitter: <a href="twitter">Mugisha ethic</a></p>
+      </div>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="address">
+    <div class="container">
+      <h2><span>My</span> Address</h2>
+      <address>
+        Sunningdale,<br>
+        seef street Lusaka,<br>Lusaka city,<br>
+        Zambia.
+      </address>
+    </div>
+  </section>
+  
+
+  <footer>
+    
+    <div class="container">
+      <div class="social">
+        <div class="go"><i class="fab fa-google"></i>Google</div>
+        <div class="fb"><i class="fab fa-LinkedIn"></i>LinkedIn</div>
+        <div class="fb"><i class="fab fa-twitter"></i> Twitter</div>
+        <div class="fb"><i class="fab fa-facebook"></i>Facebook</div>
+      </div>
+    <p>&copy; 2023 mugishatheophile. All rights reserved.</p>
+  </footer>
+  <script src="app.js"></script>
+ </body>
+</html>
